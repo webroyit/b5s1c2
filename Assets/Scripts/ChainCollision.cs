@@ -13,7 +13,8 @@ public class ChainCollision : MonoBehaviour
         // then click the plus icon and enter the name of the tag
         if(col.tag == "Ball")
         {
-            Debug.Log("Split");
+            // Call this method from Ball class
+            col.GetComponent<Ball>().Split();
         }
     }
 }
