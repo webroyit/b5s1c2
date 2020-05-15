@@ -23,6 +23,9 @@ public class Chain : MonoBehaviour
         } else{
             // Move the chain based on the player position
             transform.position = player.position;
+
+            // Set the Y value to 0 to hide the chain when it is not fired
+            transform.localScale = new Vector3(1f, 0f, 1f);
         }
     }
 }
