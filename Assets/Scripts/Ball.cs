@@ -28,10 +28,15 @@ public class Ball : MonoBehaviour
             // rb.position is the current position of the ball
             // Quaternion.identity to prevent rotation
             // Vector2.right to move the new ball to the right
-            Instantiate(nextBall, rb.position + Vector2.right / 4f, Quaternion.identity);
+            GameObject ball1 = Instantiate(nextBall, rb.position + Vector2.right / 4f, Quaternion.identity);
 
             // Vector2.left to move the new ball to the left
-            Instantiate(nextBall, rb.position + Vector2.left / 4f, Quaternion.identity);
+            GameObject ball2 = Instantiate(nextBall, rb.position + Vector2.left / 4f, Quaternion.identity);
+
+            // first argument is the direction
+            // seconed argument push the ball up
+            ball1.GetComponent<Ball>().startForce = new Vector2(2f, 5f);
+            ball2.GetComponent<Ball>().startForce = new Vector2(-2f, 5f);
         }
 
         // Remove the current ball
