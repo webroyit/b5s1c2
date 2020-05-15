@@ -9,12 +9,12 @@ public class Chain : MonoBehaviour
     public float speed = 2f;
 
     // static means that it can be access from anywhere without needing a reference to the instance of the class, but only the type
-    public static bool isFired;
+    public static bool IsFired;
 
     // Start is called before the first frame update
     void Start()
     {
-        isFired = false;
+        IsFired = false;
     }
 
     // Update is called once per frame
@@ -24,9 +24,9 @@ public class Chain : MonoBehaviour
         // You change change the input key for "Fire1" on Edit -> Project Setting -> Input Manager
         if(Input.GetButtonDown("Fire1"))
         {
-            isFired = true;
+            IsFired = true;
         }
-        if(isFired)
+        if(IsFired)
         {
             // Increase the Y value by little as time goes on
             transform.localScale = transform.localScale + Vector3.up * Time.deltaTime * speed;
