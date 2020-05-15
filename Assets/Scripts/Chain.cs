@@ -5,6 +5,9 @@ public class Chain : MonoBehaviour
     // Access Transform property on unity
     public Transform player;
 
+    // Speed of the chain
+    public float speed = 2f;
+
     // static means that it can be access from anywhere without needing a reference to the instance of the class, but only the type
     public static bool isFired;
 
@@ -25,7 +28,8 @@ public class Chain : MonoBehaviour
         }
         if(isFired)
         {
-
+            // Increase the Y value by little as time goes on
+            transform.localScale = transform.localScale + Vector3.up * Time.deltaTime * speed;
         } else{
             // Move the chain based on the player position
             transform.position = player.position;
