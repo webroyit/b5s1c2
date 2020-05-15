@@ -17,6 +17,12 @@ public class Chain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Get the user input
+        // You change change the input key for "Fire1" on Edit -> Project Setting -> Input Manager
+        if(Input.GetButtonDown("Fire1"))
+        {
+            isFired = true;
+        }
         if(isFired)
         {
 
