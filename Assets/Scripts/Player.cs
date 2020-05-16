@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -25,5 +26,18 @@ public class Player : MonoBehaviour
         // rb.position is the current position of the player
         // Time.fixedDeltaTime to improve performance
         rb.MovePosition(rb.position + new Vector2 (movement * Time.fixedDeltaTime, 0f));
-    }    
+    }
+
+    // Game over if the player gets hitted by ball
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if(col.collider.tag == "Ball")
+        {
+            Debug.Log("Game Over");
+
+            // Get the current index from scenes in build(In Build Setting)
+            // Restart the game
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
 }
